@@ -190,14 +190,12 @@
     background:repeating-linear-gradient(135deg, rgba(11,61,145,.04) 0 12px, rgba(11,61,145,0) 12px 24px);
   }
   .hero-media .van-img{
-    position:absolute;left:50%;top:52%;transform:translate(-50%,-50%);
-    width:112%;max-width:none;height:auto;
-    filter: drop-shadow(0 24px 30px rgba(0,0,0,.18));
+    position:absolute;inset:0;
+    width:100%;height:100%;object-fit:cover;
+    filter:none;
   }
   .hero-media .ground{
-    position:absolute;left:6%;right:6%;bottom:22%;height:14px;
-    background:radial-gradient(ellipse at center, rgba(0,0,0,.22) 0%, rgba(0,0,0,0) 70%);
-    filter:blur(3px);
+    display:none;
   }
   /* striped placeholder */
   .ph{
@@ -285,7 +283,9 @@
     transition:border-color .2s, transform .2s, box-shadow .2s;
   }
   .svc-card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:var(--shadow-md)}
-  .svc-card .media{aspect-ratio:16/10;border-bottom:1px solid var(--grey-2)}
+  .svc-card .media{aspect-ratio:16/10;border-bottom:1px solid var(--grey-2);overflow:hidden;background:var(--grey)}
+  .svc-card .media img{width:100%;height:100%;object-fit:cover;display:block}
+  .svc-card .media .ph{display:none}
   .svc-card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
   .svc-card .tag{
     display:inline-flex;align-items:center;gap:8px;
@@ -495,7 +495,9 @@
 
   /* ---------- Owner ---------- */
   .owner{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
-  .owner-media{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden}
+  .owner-media{aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;background:var(--grey)}
+  .owner-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .owner-media .ph{display:none}
   .owner blockquote{
     font-family:Poppins;font-weight:500;font-size:clamp(20px,2vw,26px);
     line-height:1.35;color:var(--ink);margin:18px 0;letter-spacing:-.01em;
@@ -872,7 +874,7 @@
     <div class="hero-media">
       <div class="van-bg"></div>
       <div class="ground"></div>
-      <img class="van-img" src="assets/ywc-van.avif" alt="Yes We Clean branded service van with technician illustration" loading="eager" />
+      <img class="van-img" src="assets/ywc-van-photo.png" alt="Yes We Clean service van parked outside a residential home" loading="eager" />
       <div class="stamp">
         <span class="chip">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
@@ -929,6 +931,7 @@
       <!-- DUCT -->
       <article class="svc-card">
         <div class="media">
+          <img src="images/services/air-duct-cleaning-register.png" alt="Technician cleaning a residential air duct register with a vacuum hose" loading="lazy" />
           <div class="ph light">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0B3D91" stroke-opacity=".3" stroke-width="1" stroke-linecap="round">
               <path d="M3 6h18v4H3zM3 14h18v4H3z"/><path d="M7 6v12M12 6v12M17 6v12"/>
@@ -950,6 +953,7 @@
       <!-- DRYER VENT -->
       <article class="svc-card">
         <div class="media">
+          <img src="images/services/dryer-vent-rotobrush.png" alt="Technician using a rotary brush to clean a dryer vent duct" loading="lazy" />
           <div class="ph light">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0B3D91" stroke-opacity=".3" stroke-width="1" stroke-linecap="round">
               <circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
@@ -971,6 +975,7 @@
       <!-- CHIMNEY -->
       <article class="svc-card">
         <div class="media">
+          <img src="images/services/chimney-flue-inspection.png" alt="Technician inspecting a residential chimney flue before sweeping" loading="lazy" />
           <div class="ph light">
             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0B3D91" stroke-opacity=".3" stroke-width="1" stroke-linecap="round">
               <path d="M4 21V9l8-6 8 6v12"/><path d="M9 21v-7h6v7"/>
@@ -1189,8 +1194,9 @@
 <!-- OWNER -->
 <section>
   <div class="wrap">
-    <div class="owner">
+      <div class="owner">
       <div class="owner-media">
+        <img src="images/team/marcus-portrait-uniform.png" alt="Marcus Holloway, founder and owner of Yes We Clean" loading="lazy" />
         <div class="ph light">
           <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#0B3D91" stroke-opacity=".35" stroke-width="1" stroke-linecap="round">
             <circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-7 8-7s8 3 8 7"/>
