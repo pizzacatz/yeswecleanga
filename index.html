@@ -388,7 +388,10 @@
   .rev-card{
     background:#fff;border:1px solid var(--grey-2);border-radius:14px;
     padding:22px;display:flex;flex-direction:column;gap:12px;
+    color:inherit;text-decoration:none;
+    transition:border-color .2s, transform .2s, box-shadow .2s;
   }
+  a.rev-card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:var(--shadow-md)}
   .rev-card .top{display:flex;justify-content:space-between;align-items:center}
   .rev-card .stars{color:var(--orange);letter-spacing:2px;font-size:14px}
   .rev-card .google{font-size:11px;color:var(--ink-3);font-weight:600;letter-spacing:.08em;text-transform:uppercase}
@@ -1040,21 +1043,24 @@
     </div>
 
     <div class="rev-grid">
-      <article class="rev-card">
+      <!-- TODO: replace href="#" with the Google review URL for Barbara S. -->
+      <a class="rev-card" href="#" target="_blank" rel="noopener" aria-label="Read Barbara S.'s review on Google">
         <div class="top"><span class="stars">★★★★★</span><span class="google">Google · 2d ago</span></div>
         <blockquote>"Andre showed up 10 minutes early, wore booties without being asked, and sent a photo of every single register before and after. Our allergy symptoms are gone."</blockquote>
         <div class="who"><div class="av">BS</div><div><div class="name">Barbara S.</div><div class="place">Sandy Springs · Duct cleaning</div></div></div>
-      </article>
-      <article class="rev-card">
+      </a>
+      <!-- TODO: replace href="#" with the Google review URL for Derrick R. -->
+      <a class="rev-card" href="#" target="_blank" rel="noopener" aria-label="Read Derrick R.'s review on Google">
         <div class="top"><span class="stars">★★★★★</span><span class="google">Google · 1w ago</span></div>
         <blockquote>"Quoted me $349 over the phone. Didn't try to upsell once. The other guys I called kept 'finding' problems. Refreshing to work with pros who just do the job."</blockquote>
         <div class="who"><div class="av">DR</div><div><div class="name">Derrick R.</div><div class="place">Decatur · Duct + Dryer vent</div></div></div>
-      </article>
-      <article class="rev-card">
+      </a>
+      <!-- TODO: replace href="#" with the Google review URL for Jana P. -->
+      <a class="rev-card" href="#" target="_blank" rel="noopener" aria-label="Read Jana P.'s review on Google">
         <div class="top"><span class="stars">★★★★★</span><span class="google">Google · 2w ago</span></div>
         <blockquote>"I manage 34 Airbnb units. Yes We Clean is the first crew that can handle a whole turn day without me babysitting them. Dolph runs a tight ship."</blockquote>
         <div class="who"><div class="av">JP</div><div><div class="name">Jana P.</div><div class="place">Buckhead · STR portfolio</div></div></div>
-      </article>
+      </a>
     </div>
   </div>
 </section>
