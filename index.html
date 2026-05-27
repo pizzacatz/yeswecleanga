@@ -245,6 +245,15 @@
   .hero-media .card-float .meta{font-size:12.5px;color:var(--ink-3)}
   .hero-media .card-float .stars{color:var(--orange);font-size:13px;letter-spacing:2px}
 
+  .hero-media .hero-vid{
+    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;display:block;
+  }
+  .hero-media .hero-scrim{
+    position:absolute;inset:0;z-index:1;pointer-events:none;
+    background:linear-gradient(180deg,rgba(8,20,55,.18) 0%,rgba(8,20,55,0) 32%,rgba(8,20,55,.55) 100%);
+  }
+  .hero-media .stamp,.hero-media .card-float{z-index:2}
+
   @media(max-width:900px){
     .hero .wrap{grid-template-columns:1fr;gap:36px;padding:48px 20px 56px}
     .hero-media{aspect-ratio: 4/3}
@@ -283,7 +292,7 @@
   }
   .svc-card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:var(--shadow-md)}
   .svc-card .media{aspect-ratio:16/10;border-bottom:1px solid var(--grey-2);overflow:hidden;background:var(--grey)}
-  .svc-card .media img{width:100%;height:100%;object-fit:cover;display:block}
+  .svc-card .media img,.svc-card .media video{width:100%;height:100%;object-fit:cover;display:block}
   .svc-card .media .ph{display:none}
   .svc-card .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
   .svc-card .tag{
@@ -465,6 +474,7 @@
     margin:0;aspect-ratio:3/4;border-radius:12px;overflow:hidden;position:relative;background:#000;
   }
   .case-gallery figure img{width:100%;height:100%;object-fit:cover;display:block}
+  .case-hero .primary video,.case-hero .side figure video,.case-gallery figure video{width:100%;height:100%;object-fit:cover;display:block}
   .case-gallery figcaption{
     position:absolute;left:10px;bottom:10px;
     background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
@@ -870,7 +880,10 @@
       </div>
     </div>
     <div class="hero-media">
-      <div class="van-bg"></div>
+      <video class="hero-vid" autoplay muted loop playsinline preload="metadata" poster="images/hero-duct-poster.jpg" aria-label="Yes We Clean technician's camera passing through a residential air duct">
+        <source src="videos/hero-duct-cleaning.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-scrim"></div>
       <div class="ground"></div>
       <div class="stamp">
         <span class="chip">
@@ -928,7 +941,7 @@
       <!-- DUCT -->
       <article class="svc-card">
         <div class="media">
-          <img src="images/services/air-duct-cleaning-register.png" alt="Technician cleaning a residential air duct register with a vacuum hose" loading="lazy" />
+          <img src="images/services/air-duct-register-real.jpg" alt="Dust-packed supply duct and register photographed on a Metro Atlanta job before cleaning" loading="lazy" />
         </div>
         <div class="body">
           <span class="tag"><span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v4H3zM3 14h18v4H3z"/></svg></span> Air duct cleaning</span>
@@ -944,7 +957,9 @@
       <!-- DRYER VENT -->
       <article class="svc-card">
         <div class="media">
-          <img src="images/services/dryer-vent-rotobrush.png" alt="Technician using a rotary brush to clean a dryer vent duct" loading="lazy" />
+          <video autoplay muted loop playsinline preload="none" poster="images/services/dryer-vent-poster.jpg" aria-label="Inside view of a lint-lined dryer vent duct on a real job">
+            <source src="videos/dryer-vent-clean.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="body">
           <span class="tag"><span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/></svg></span> Dryer vent cleaning</span>
@@ -960,7 +975,9 @@
       <!-- CHIMNEY -->
       <article class="svc-card">
         <div class="media">
-          <img src="images/services/chimney-flue-inspection.png" alt="Technician inspecting a residential chimney flue before sweeping" loading="lazy" />
+          <video autoplay muted loop playsinline preload="none" poster="images/services/chimney-inspect-poster.jpg" aria-label="Inspection camera passing down a round vent on a real service call">
+            <source src="videos/chimney-inspect.mp4" type="video/mp4" />
+          </video>
         </div>
         <div class="body">
           <span class="tag"><span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 21V9l8-6 8 6v12"/></svg></span> Chimney sweep &amp; inspect</span>
@@ -1059,36 +1076,36 @@
     <div class="case-head">
       <div>
         <span class="eyebrow">Field report · #YWC-1109</span>
-        <h2>The water heater flue that was already leaking carbon monoxide.</h2>
+        <h2>The duct system packed with a decade of dust — and a dryer vent one clog from a fire.</h2>
         <p style="color:var(--ink-2);margin-top:14px;font-size:16px;line-height:1.55;max-width:56ch">
-          A routine dryer vent appointment in Brookhaven turned into something much bigger. Here's every photo, every finding, and what we actually did about it.
+          A whole-home duct and dryer-vent clean in Brookhaven, on a system that hadn't been touched since the house was built. Here's every before, every after, and exactly what came out.
         </p>
       </div>
       <div class="case-meta">
         <div><div class="k">Neighborhood</div><div class="v">Brookhaven, GA<small>30319</small></div></div>
-        <div><div class="k">Booked for</div><div class="v">Dryer vent clean<small>Found on arrival</small></div></div>
+        <div><div class="k">Booked for</div><div class="v">Whole-home duct clean<small>+ dryer vent add-on</small></div></div>
         <div><div class="k">Crew</div><div class="v">Dolph + Danny<small>W-2, NADCA-aligned</small></div></div>
-        <div><div class="k">Total time on site</div><div class="v">4h 20m<small>Same-day completion</small></div></div>
+        <div><div class="k">Total time on site</div><div class="v">3h 10m<small>Same-day photo report</small></div></div>
       </div>
     </div>
 
     <!-- Hero photo row -->
     <div class="case-hero">
       <div class="primary">
-        <img src="images/jobs/flue-03-before-hole.jpg" alt="Corroded water heater flue with rust-through holes" loading="lazy">
+        <img src="images/case/before-main-return.jpg" alt="Main return duct packed wall-to-wall with gray dust before cleaning" loading="lazy">
         <span class="case-badge before"><span class="dot"></span>BEFORE</span>
         <div class="case-caption">
-          <b>Exterior view, day of service.</b> Rust-through hole visible at the elbow joint — both flue stacks corroded to failure. This is a live CO exhaust path from a gas water heater.
+          <b>Main return, day of service.</b> Years of dust, drywall residue, and pet dander caked the full depth of the trunk. This is what every cycle was pulling air through.
         </div>
       </div>
       <div class="side">
         <figure>
-          <img src="images/jobs/flue-02-before-corroded.jpg" alt="Rusted storm collar and pipe">
+          <img src="images/case/before-branch.jpg" alt="Branch supply duct lined with thick dust before cleaning">
           <span class="case-badge before"><span class="dot"></span>BEFORE</span>
         </figure>
         <figure>
-          <img src="images/jobs/flue-04-attic-old.jpg" alt="Old galvanized flue in attic, taped joints">
-          <span class="case-badge before"><span class="dot"></span>ATTIC</span>
+          <img src="images/case/before-register.jpg" alt="Supply register opening coated in dust and debris">
+          <span class="case-badge before"><span class="dot"></span>REGISTER</span>
         </figure>
       </div>
     </div>
@@ -1097,19 +1114,19 @@
     <div class="case-story">
       <div>
         <h3>What we found</h3>
-        <p>The homeowner booked us for a $149 dryer vent clean. Standard stuff. When Dolph got up on the roof to check the termination cap, he noticed both water heater flue stacks were heavily corroded — one had a visible hole rusted clean through the elbow.</p>
-        <p>In the attic, the old galvanized B-vent was held together at the joints with foil tape and pipe clamps. <b>Any gap or hole in a gas flue means combustion byproducts — including carbon monoxide — can vent into the living space instead of up and out.</b></p>
+        <p>The homeowner booked a standard whole-home duct clean. When Danny pulled the first return cover, the supply trunk was packed wall-to-wall with gray dust, drywall residue, and pet dander — the kind of buildup that comes from a system that's never been cleaned.</p>
+        <p>Down at the laundry, the dryer vent told the same story: the flex run was choked with a solid felt of lint. <b>A restricted vent means a dryer that runs hot and long — the leading cause of household dryer fires.</b></p>
         <div class="case-finding">
           <div class="lab">⚠ Safety finding</div>
-          <p>Active CO leak path on a 50-gallon gas water heater. Homeowner notified immediately. Replacement quoted on-site, approved, and completed same day.</p>
+          <p>Dryer vent over 80% blocked with packed lint — a confirmed fire risk. Flagged on arrival, cleared and airflow-tested before we left the driveway.</p>
         </div>
       </div>
       <div>
         <h3>What we did</h3>
-        <p><b>Full B-vent replacement, top to bottom.</b> Removed both corroded flue stacks from the attic up through the roof. Replaced with new Type-B double-wall galvanized pipe, new storm collars, new roof flashing, and factory-spec terminations rated for gas appliances.</p>
-        <p>Sealed every joint with high-temp silicone. Re-painted the exposed exterior sections to match the original black finish so it blends with the roofline. Tested draft at the water heater and confirmed negative pressure at the flue — no spillage.</p>
+        <p><b>Full 27-point clean, every supply and return.</b> Truck-mounted negative pressure on the trunk lines, an agitating whip and rotary brush through every branch, then an EPA-registered sanitizer fog and a coil rinse at the air handler.</p>
+        <p>Brushed the full dryer-vent run end to end, cleared the lint, re-sealed the transition duct, and measured airflow before and after. Every register went back on clean.</p>
         <p style="color:var(--ink-3);font-size:13.5px;margin-top:16px">
-          <b style="color:var(--ink)">Invoice:</b> Original dryer vent $149 + emergency flue replacement $1,480 (materials + labor, approved in writing before work began). <b style="color:var(--ink)">Photo report of all 18 reference points</b> emailed to homeowner 3:47pm same day.
+          <b style="color:var(--ink)">Invoice:</b> Whole-home duct clean $349 + dryer vent $149 (approved in writing before we started). <b style="color:var(--ink)">Photo report of every reference point</b> emailed to the homeowner the same afternoon.
         </p>
       </div>
     </div>
@@ -1122,20 +1139,22 @@
       </div>
       <div class="case-gallery">
         <figure>
-          <img src="images/jobs/flue-05-crew-working.jpg" alt="Crew working in attic">
-          <figcaption>01 · Attic access</figcaption>
+          <img src="images/case/report-supply-before.jpg" alt="Supply duct caked in dust, photographed before cleaning">
+          <figcaption>01 · Supply trunk (before)</figcaption>
         </figure>
         <figure>
-          <img src="images/jobs/flue-06-new-flashing.jpg" alt="New flashing installed on roof">
-          <figcaption>02 · New flashing</figcaption>
+          <video autoplay muted loop playsinline preload="none" poster="images/case/report-brushing-poster.jpg" aria-label="Rotary brush running through the inside of a duct">
+            <source src="videos/case-brushing.mp4" type="video/mp4" />
+          </video>
+          <figcaption>02 · Brushing the line</figcaption>
         </figure>
         <figure>
-          <img src="images/jobs/flue-07-during-new-pipe.jpg" alt="New galvanized flue installed">
-          <figcaption>03 · Pipe replaced</figcaption>
+          <img src="images/case/report-branch-before.jpg" alt="Branch duct interior before cleaning">
+          <figcaption>03 · Branch duct (before)</figcaption>
         </figure>
         <figure>
-          <img src="images/jobs/flue-08-attic-new.jpg" alt="New pipe in attic post-install">
-          <figcaption>04 · Attic verified</figcaption>
+          <img src="images/case/report-after.jpg" alt="Same duct connection cleaned back to bare metal">
+          <figcaption>04 · Same line, after</figcaption>
         </figure>
       </div>
     </div>
@@ -1143,17 +1162,19 @@
     <!-- After + proud -->
     <div class="case-hero" style="margin-top:20px">
       <div class="primary">
-        <img src="images/jobs/flue-09-after-painted.jpg" alt="New flue stacks installed and painted black">
+        <img src="images/case/after-trunk.jpg" alt="Duct interior cleaned back to bare metal after service" loading="lazy">
         <span class="case-badge after"><span class="dot"></span>AFTER</span>
         <div class="case-caption">
-          <b>Same roof, same afternoon.</b> New Type-B double-wall flue, new storm collars, new flashing, repainted to match. Homeowner approved via text before we left the driveway.
+          <b>Same trunk, same afternoon.</b> Brushed and sanitized back to bare metal. The airflow test came back in spec on every run before we packed up.
         </div>
       </div>
       <div class="side" style="grid-template-rows:1fr">
         <figure>
-          <img src="images/jobs/flue-01-proud-crew.jpg" alt="Dolph and Danny holding the old corroded flue pipes">
-          <span class="case-badge" style="color:var(--navy)"><span class="dot"></span>THE CREW</span>
-          <div class="case-caption"><b>Dolph &amp; Danny</b> with the old pipes. Left one is the CO leak.</div>
+          <video autoplay muted loop playsinline preload="none" poster="images/case/after-pass-poster.jpg" aria-label="Camera passing through a freshly cleaned duct run">
+            <source src="videos/case-after-pass.mp4" type="video/mp4" />
+          </video>
+          <span class="case-badge after"><span class="dot"></span>AFTER</span>
+          <div class="case-caption">Final pass through a cleaned return.</div>
         </figure>
       </div>
     </div>
@@ -1161,8 +1182,8 @@
     <!-- Close -->
     <div class="case-close">
       <div>
-        <h3>This is why we're on the roof — not just at the vent.</h3>
-        <p>Nine out of ten cleaners would have cleaned the dryer vent, collected $149, and left. We look at the whole system, photograph everything, and tell you what we find — even when it means a harder conversation.</p>
+        <h3>This is why we photograph every inch — not just the easy registers.</h3>
+        <p>Most cleaners pull a couple of covers, run a shop vac, and call it done. We brush every branch, fog every line, and send you the before and after photos — so you can see exactly what left your air.</p>
       </div>
       <div class="cta">
         <div class="lab">Want a full walkthrough on your home?</div>
