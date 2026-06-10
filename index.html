@@ -254,6 +254,20 @@
   }
   .hero-media .stamp,.hero-media .card-float{z-index:2}
 
+  /* Before / after labels over the hero image */
+  .hero-media .ba-tag{
+    position:absolute;top:50%;transform:translateY(-50%);z-index:2;
+    display:inline-flex;align-items:center;gap:6px;
+    background:rgba(255,255,255,.95);backdrop-filter:blur(6px);
+    padding:6px 12px;border-radius:999px;
+    font-family:'JetBrains Mono',ui-monospace,monospace;
+    font-size:12px;font-weight:700;letter-spacing:.06em;
+    box-shadow:0 8px 20px -10px rgba(0,0,0,.55);
+  }
+  .hero-media .ba-tag .dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+  .hero-media .ba-tag.before{left:14px;color:#8a1f1f}
+  .hero-media .ba-tag.after{right:14px;color:#0f5a2e}
+
   @media(max-width:900px){
     .hero .wrap{grid-template-columns:1fr;gap:36px;padding:48px 20px 56px}
     .hero-media{aspect-ratio: 4/3}
@@ -481,6 +495,12 @@
     padding:5px 9px;border-radius:6px;font-size:11px;font-weight:600;color:var(--ink);
     font-family:'JetBrains Mono',monospace;letter-spacing:.02em;
   }
+
+  /* Before / during / after, all cropped to one row */
+  .case-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+  .case-trio figure{margin:0;aspect-ratio:4/5;border-radius:var(--radius-lg);overflow:hidden;position:relative;background:#000}
+  .case-trio figure img{width:100%;height:100%;object-fit:cover;display:block}
+  @media(max-width:640px){ .case-trio{grid-template-columns:1fr} }
 
   .case-close{
     margin-top:40px;padding:28px 32px;
@@ -880,8 +900,10 @@
       </div>
     </div>
     <div class="hero-media">
-      <img class="hero-vid" src="images/facebook-post-3.jpg" alt="Yes We Clean technician performing vent cleaning services" />
+      <img class="hero-vid" src="images/facebook-post-3.jpg" alt="Before and after of a Yes We Clean vent cleaning job" />
       <div class="hero-scrim"></div>
+      <span class="ba-tag before"><span class="dot"></span>BEFORE</span>
+      <span class="ba-tag after"><span class="dot"></span>AFTER</span>
       <div class="ground"></div>
       <div class="stamp">
         <span class="chip">
@@ -916,7 +938,7 @@
       </div>
       <div class="stat">
         <div class="big">0</div>
-        <div class="lab">Subcontractors. Zero gig workers, all uniformed</div>
+        <div class="lab">Gig workers — every tech uniformed &amp; vetted</div>
       </div>
       <div class="stat">
         <div class="big">100<sup>%</sup></div>
@@ -932,19 +954,19 @@
     <div class="sec-head">
       <span class="eyebrow">What we do</span>
       <h2>Three services. One honest crew.</h2>
-      <p>Published starting prices, locked before we arrive. If we find something unexpected, we stop and show you — we don't add to the invoice without your OK.</p>
+      <p>Published starting prices, shown up front before we arrive. If we find something unexpected, we stop and show you — we don't add to the invoice without your OK.</p>
     </div>
 
     <div class="svc-grid">
       <!-- DUCT -->
       <article class="svc-card">
         <div class="media">
-          <img src="images/services/air-duct-register-real.jpg" alt="Dust-packed supply duct and register photographed on a Metro Atlanta job before cleaning" loading="lazy" />
+          <img src="images/services/air-duct-register-real.jpg" alt="Negative-pressure air duct cleaning machine connected to a ceiling register on a Metro Atlanta job" loading="lazy" />
         </div>
         <div class="body">
           <span class="tag"><span class="ico"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18v4H3zM3 14h18v4H3z"/></svg></span> Air duct cleaning</span>
           <h3>Whole-home duct cleaning &amp; sanitize</h3>
-          <p>Truck-mounted negative pressure, brushing every supply &amp; return, EPA-registered sanitizer, HVAC coil rinse.</p>
+          <p>Negative-pressure machine, brushing every supply &amp; return, EPA-registered sanitizer, HVAC coil rinse.</p>
           <div class="meta">
             <span class="price"><small>Starting at</small>$349</span>
             <a class="more" href="#pricing">See pricing</a>
@@ -955,8 +977,8 @@
       <!-- DRYER VENT -->
       <article class="svc-card">
         <div class="media">
-          <video autoplay muted loop playsinline preload="none" poster="images/services/dryer-vent-poster.jpg" aria-label="Inside view of a lint-lined dryer vent duct on a real job">
-            <source src="videos/dryer-vent-clean.mp4" type="video/mp4" />
+          <video autoplay muted loop playsinline preload="none" poster="images/services/rotobrush-airflow-poster.jpg" aria-label="Rotary brush running the full length of a vent duct on a real job">
+            <source src="videos/rotobrush-airflow.mp4" type="video/mp4" />
           </video>
         </div>
         <div class="body">
@@ -1000,7 +1022,7 @@
     <div class="why-grid">
       <div class="why-card">
         <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
-        <div><h3>Pricing locked before we arrive</h3><p>Published ranges. You approve the number, that's the invoice — no day-of surprises.</p></div>
+        <div><h3>Honest, up-front pricing</h3><p>Published starting ranges. If a job needs more, we stop and show you first — no surprise upsells, no work without your OK.</p></div>
       </div>
       <div class="why-card">
         <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
@@ -1019,7 +1041,7 @@
     <!-- Inline how-it-works strip -->
     <div class="steps" style="margin-top:56px">
       <div class="step active"><div class="num">1</div><h4>Get a quote</h4><p>Call, text, or fill the form. Quote in under an hour.</p></div>
-      <div class="step"><div class="num">2</div><h4>Lock your price</h4><p>You approve the number. That's the price you'll pay.</p></div>
+      <div class="step"><div class="num">2</div><h4>Get your quote</h4><p>A clear starting price up front. You approve before we start — no surprise upsells.</p></div>
       <div class="step"><div class="num">3</div><h4>Tech arrives</h4><p>Uniformed tech. 2-hour window. ETA text.</p></div>
       <div class="step"><div class="num">4</div><h4>Photo report</h4><p>Before &amp; after photos emailed before we leave.</p></div>
     </div>
@@ -1071,115 +1093,65 @@
   <div class="wrap">
     <div class="case-head">
       <div>
-        <span class="eyebrow">Field report · #YWC-1109</span>
-        <h2>The duct system packed with a decade of dust — and a dryer vent one clog from a fire.</h2>
+        <span class="eyebrow">Field report · #YWV-1108</span>
+        <h2>Two rusted-through furnace stacks, leaking exhaust into the house — replaced and sealed for good.</h2>
         <p style="color:var(--ink-2);margin-top:14px;font-size:16px;line-height:1.55;max-width:56ch">
-          A whole-home duct and dryer-vent clean in Brookhaven, on a system that hadn't been touched since the house was built. Here's every before, every after, and exactly what came out.
+          Larry's furnace was venting through two corroded chimney stacks that had rusted through at the joints. We pulled both, ran brand-new vent lines, and sealed the system tight. Here's the before, the install, and the after.
         </p>
       </div>
       <div class="case-meta">
-        <div><div class="k">Neighborhood</div><div class="v">Brookhaven, GA<small>30319</small></div></div>
-        <div><div class="k">Booked for</div><div class="v">Whole-home duct clean<small>+ dryer vent add-on</small></div></div>
-        <div><div class="k">Crew</div><div class="v">Dolph + Danny<small>Uniformed, Vetted</small></div></div>
-        <div><div class="k">Total time on site</div><div class="v">3h 10m<small>Same-day photo report</small></div></div>
+        <div><div class="k">Customer</div><div class="v">Larry<small>Metro Atlanta</small></div></div>
+        <div><div class="k">Booked for</div><div class="v">Chimney &amp; furnace flue<small>Replacement + new vent lines</small></div></div>
+        <div><div class="k">Crew</div><div class="v">Dolph + crew<small>Uniformed, Vetted</small></div></div>
+        <div><div class="k">Result</div><div class="v">Leaks stopped for good<small>Venting safely again</small></div></div>
       </div>
     </div>
 
-    <!-- Hero photo row -->
-    <div class="case-hero">
-      <div class="primary">
-        <img src="images/case/before-main-return.jpg" alt="Main return duct packed wall-to-wall with gray dust before cleaning" loading="lazy">
+    <!-- Before / during / after, one row -->
+    <div class="case-trio">
+      <figure>
+        <img src="images/case/larry-old-chimney.jpg" alt="Larry standing beside his old corroded furnace chimney stack before replacement" loading="lazy">
         <span class="case-badge before"><span class="dot"></span>BEFORE</span>
-        <div class="case-caption">
-          <b>Main return, day of service.</b> Years of dust, drywall residue, and pet dander caked the full depth of the trunk. This is what every cycle was pulling air through.
-        </div>
-      </div>
-      <div class="side">
-        <figure>
-          <img src="images/case/before-branch.jpg" alt="Branch supply duct lined with thick dust before cleaning">
-          <span class="case-badge before"><span class="dot"></span>BEFORE</span>
-        </figure>
-        <figure>
-          <img src="images/case/before-register.jpg" alt="Supply register opening coated in dust and debris">
-          <span class="case-badge before"><span class="dot"></span>REGISTER</span>
-        </figure>
-      </div>
+        <div class="case-caption"><b>Larry's old stack.</b> Rusted through at the seams and leaking exhaust.</div>
+      </figure>
+      <figure>
+        <img src="images/case/larry-chimney-install.jpg" alt="Yes We Clean crew installing Larry's new furnace chimney and vent lines" loading="lazy">
+        <span class="case-badge"><span class="dot"></span>DURING</span>
+        <div class="case-caption"><b>New vent lines going in.</b> Pitched and sealed at every joint.</div>
+      </figure>
+      <figure>
+        <img src="images/case/larry-new-chimney.jpg" alt="Larry's brand-new furnace chimney stacks installed and venting safely" loading="lazy">
+        <span class="case-badge after"><span class="dot"></span>AFTER</span>
+        <div class="case-caption"><b>Brand-new stacks.</b> Draft-tested, leak-free, venting clean.</div>
+      </figure>
     </div>
 
     <!-- Story -->
     <div class="case-story">
       <div>
         <h3>What we found</h3>
-        <p>The homeowner booked a standard whole-home duct clean. When Danny pulled the first return cover, the supply trunk was packed wall-to-wall with gray dust, drywall residue, and pet dander — the kind of buildup that comes from a system that's never been cleaned.</p>
-        <p>Down at the laundry, the dryer vent told the same story: the flex run was choked with a solid felt of lint. <b>A restricted vent means a dryer that runs hot and long — the leading cause of household dryer fires.</b></p>
+        <p>Larry called us out because his furnace flue stacks looked rough and he was worried about leaks. He was right. Both galvanized stacks had rusted through at the seams — the kind of corrosion that lets furnace exhaust escape before it ever vents above the roof.</p>
+        <p>Patching wasn't an option. <b>Once a flue rusts through, the metal around it is already compromised — the only safe fix is to replace the run.</b></p>
         <div class="case-finding">
           <div class="lab">⚠ Safety finding</div>
-          <p>Dryer vent over 80% blocked with packed lint — a confirmed fire risk. Flagged on arrival, cleared and airflow-tested before we left the driveway.</p>
+          <p>A cracked or rusted-through chimney flue doesn't just leak heat — it can leak carbon monoxide and combustion gases straight into the home, and corroded metal next to a heat source is a fire risk. Both stacks were past saving. Replaced and sealed before we left.</p>
         </div>
       </div>
       <div>
         <h3>What we did</h3>
-        <p><b>Full 27-point clean, every supply and return.</b> Truck-mounted negative pressure on the trunk lines, an agitating whip and rotary brush through every branch, then an EPA-registered sanitizer fog and a coil rinse at the air handler.</p>
-        <p>Brushed the full dryer-vent run end to end, cleared the lint, re-sealed the transition duct, and measured airflow before and after. Every register went back on clean.</p>
+        <p><b>Replaced two damaged furnace stacks and built the system back from scratch.</b> We pulled both corroded stacks, ran brand-new vent lines pitched and sealed at every joint, and brought everything up so it vents cleanly above the roof.</p>
+        <p>Then we tested the draft, confirmed there were no leaks, and walked Larry through every connection before we packed up — working safely and efficiently from start to finish.</p>
         <p style="color:var(--ink-3);font-size:13.5px;margin-top:16px">
-          <b style="color:var(--ink)">Invoice:</b> Whole-home duct clean $349 + dryer vent $149 (approved in writing before we started). <b style="color:var(--ink)">Photo report of every reference point</b> emailed to the homeowner the same afternoon.
+          <b style="color:var(--ink)">The result:</b> the system is venting safely again, with the leaks stopped for good. Larry was happy enough that he asked for a photo with the crew. <b style="color:var(--ink)">Full photo report</b> — before, during, and after — emailed the same day.
         </p>
-      </div>
-    </div>
-
-    <!-- Gallery -->
-    <div style="margin-top:44px">
-      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;flex-wrap:wrap;gap:12px">
-        <h3 style="font-family:Poppins;font-weight:600;font-size:18px;margin:0">The full photo report</h3>
-        <span class="mono" style="color:var(--ink-3);font-size:12px">Every customer gets this. Every job. Emailed before we leave.</span>
-      </div>
-      <div class="case-gallery">
-        <figure>
-          <img src="images/case/report-supply-before.jpg" alt="Supply duct caked in dust, photographed before cleaning">
-          <figcaption>01 · Supply trunk (before)</figcaption>
-        </figure>
-        <figure>
-          <video autoplay muted loop playsinline preload="none" poster="images/case/report-brushing-poster.jpg" aria-label="Rotary brush running through the inside of a duct">
-            <source src="videos/case-brushing.mp4" type="video/mp4" />
-          </video>
-          <figcaption>02 · Brushing the line</figcaption>
-        </figure>
-        <figure>
-          <img src="images/case/report-branch-before.jpg" alt="Branch duct interior before cleaning">
-          <figcaption>03 · Branch duct (before)</figcaption>
-        </figure>
-        <figure>
-          <img src="images/case/report-after.jpg" alt="Same duct connection cleaned back to bare metal">
-          <figcaption>04 · Same line, after</figcaption>
-        </figure>
-      </div>
-    </div>
-
-    <!-- After + proud -->
-    <div class="case-hero" style="margin-top:20px">
-      <div class="primary">
-        <img src="images/case/after-trunk.jpg" alt="Duct interior cleaned back to bare metal after service" loading="lazy">
-        <span class="case-badge after"><span class="dot"></span>AFTER</span>
-        <div class="case-caption">
-          <b>Same trunk, same afternoon.</b> Brushed and sanitized back to bare metal. The airflow test came back in spec on every run before we packed up.
-        </div>
-      </div>
-      <div class="side" style="grid-template-rows:1fr">
-        <figure>
-          <video autoplay muted loop playsinline preload="none" poster="images/case/after-pass-poster.jpg" aria-label="Camera passing through a freshly cleaned duct run">
-            <source src="videos/case-after-pass.mp4" type="video/mp4" />
-          </video>
-          <span class="case-badge after"><span class="dot"></span>AFTER</span>
-          <div class="case-caption">Final pass through a cleaned return.</div>
-        </figure>
       </div>
     </div>
 
     <!-- Close -->
     <div class="case-close">
       <div>
-        <h3>This is why we photograph every inch — not just the easy registers.</h3>
-        <p>Most cleaners pull a couple of covers, run a shop vac, and call it done. We brush every branch, fog every line, and send you the before and after photos — so you can see exactly what left your air.</p>
+        <h3>This is why we photograph every job — start to finish.</h3>
+        <p>Most shops do the work and hand you an invoice. We document the before, the during, and the after, and send you the photos — so you can see exactly what we found and exactly what we fixed.</p>
       </div>
       <div class="cta">
         <div class="lab">Want a full walkthrough on your home?</div>
@@ -1213,7 +1185,7 @@
       <div>
         <span class="eyebrow">Service areas</span>
         <h2 style="margin-top:10px">30+ Metro Atlanta neighborhoods. Same-day slots most weekdays.</h2>
-        <p style="color:var(--ink-2);margin-top:14px;max-width:52ch">We cover all of DeKalb, Fulton, Cobb, and Gwinnett counties — plus parts of Forsyth and Cherokee. No fuel surcharges inside the perimeter.</p>
+        <p style="color:var(--ink-2);margin-top:14px;max-width:52ch">We cover all of DeKalb, Fulton, Cobb, and Gwinnett counties — plus parts of Forsyth and Cherokee. Based in Buckhead, we travel up to a <b>70-mile radius</b> around Atlanta. No fuel surcharges inside the perimeter.</p>
         <div class="chips">
           <span class="chip">Sandy Springs</span>
           <span class="chip">Marietta</span>
@@ -1275,15 +1247,15 @@
     <div class="pricing-head">
       <span class="eyebrow" style="justify-content:center;display:inline-flex">The competitive wedge</span>
       <h2 style="margin-top:12px">Straightforward pricing. No surprises.</h2>
-      <p style="color:var(--ink-2);margin-top:14px">We're one of the only Metro Atlanta cleaners publishing our full price ranges. Lock your quote before we arrive — it's the price you'll pay.</p>
+      <p style="color:var(--ink-2);margin-top:14px">We're one of the only Metro Atlanta cleaners publishing our full price ranges — so you know what to expect before we ever knock on your door.</p>
     </div>
 
     <div class="price-cards">
       <div class="price-card">
         <h3>Air Duct Cleaning</h3>
         <p class="desc">Whole-home supplies, main supply line, main trunk line, and sanitizer.</p>
-        <div class="amt"><small>from</small><div class="num">$349</div></div>
-        <div class="range">Typical range $349–$699 · up to 10 vents · repairs priced separately · repairs priced separately</div>
+        <div class="amt"><small>starting from</small><div class="num">$349</div></div>
+        <div class="range">Typical range $349–$699 · up to 10 vents · repairs priced separately</div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Negative pressure machine</li>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Individual register brushing (up to 3 returns)</li>
@@ -1298,7 +1270,7 @@
         <span class="feat">Most booked</span>
         <h3>Dryer Vent Cleaning</h3>
         <p class="desc">Full-run rotobrush + before/after airflow test.</p>
-        <div class="amt"><small>from</small><div class="num">$149</div></div>
+        <div class="amt"><small>starting from</small><div class="num">$149</div></div>
         <div class="range">Typical range $149–$299 · photo report · repairs priced separately</div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Full-run mechanical brushing</li>
@@ -1313,7 +1285,7 @@
       <div class="price-card">
         <h3>Chimney Services</h3>
         <p class="desc">Level 1 inspection, full sweep, written report.</p>
-        <div class="amt"><small>from</small><div class="num">$229</div></div>
+        <div class="amt"><small>starting from</small><div class="num">$229</div></div>
         <div class="range">Typical range $229–$549 · repair priced separately</div>
         <ul>
           <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg> Professional chimney sweep</li>
@@ -1369,6 +1341,7 @@
         <div class="field"><label for="f-email">Email address</label><input id="f-email" name="email" type="email" required placeholder="barbara@example.com" /></div>
         <div class="field"><label for="f-zip">ZIP code</label><input id="f-zip" name="zip" type="text" inputmode="numeric" pattern="[0-9]{5}" required placeholder="30327" /></div>
       </div>
+      <div class="field"><label for="f-address">Street address</label><input id="f-address" name="address" type="text" required placeholder="123 Peachtree St, Atlanta, GA" autocomplete="street-address" /></div>
       <div class="row-2">
         <div class="field"><label for="f-svc">Service needed</label>
           <select id="f-svc" name="service" required>
@@ -1430,7 +1403,7 @@
         </details>
         <details class="q">
           <summary><span>How often should I clean my ducts?</span><span class="plus">+</span></summary>
-          <div class="a"><p>NADCA recommends every 3–5 years for average homes. Sooner if you have pets, smokers, allergies, recent renovation, or a new baby. We'll tell you honestly — if you don't need it yet, we'll say so.</p></div>
+          <div class="a"><p>Every 3–5 years for the average home. Sooner if you have pets, smokers, allergies, recent renovation, or a new baby. We'll tell you honestly — if you don't need it yet, we'll say so.</p></div>
         </details>
         <details class="q">
           <summary><span>Do I need to be home?</span><span class="plus">+</span></summary>
@@ -1468,9 +1441,7 @@
       </div>
       <p class="tagline">Yes We Clean. Done Right. Metro Atlanta's transparent home-services crew.</p>
       <div class="cred-row">
-        <span class="cred"><span class="dot"></span> NADCA-aligned</span>
         <span class="cred"><span class="dot"></span> Licensed &amp; insured</span>
-        <span class="cred"><span class="dot"></span> EPA-registered sanitizers</span>
       </div>
     </div>
 
@@ -1511,16 +1482,14 @@
         <li>Sun–Fri · 7am–9pm</li>
       </ul>
       <div class="socials" style="margin-top:14px">
-        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+        <a href="https://www.instagram.com/yeswecleanga/" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
         <a href="https://www.facebook.com/profile.php?id=61586454251811" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
-        <a href="#" aria-label="Google"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12h8M12 8v8"/></svg></a>
       </div>
     </div>
   </div>
 
   <div class="wrap foot-bottom">
     <div>© 2026 Yes We Clean LLC · Atlanta, GA · Registered GA Business</div>
-    <div><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="accessibility.html">Accessibility</a></div>
   </div>
 </footer>
 
