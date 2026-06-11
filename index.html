@@ -177,7 +177,8 @@
   }
   .trust-bar span{display:inline-flex;align-items:center;gap:8px}
   .trust-bar .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
-  .hero-media{
+  .hero-media{position:relative}
+  .hero-frame{
     position:relative;border-radius:var(--radius-lg);overflow:hidden;
     aspect-ratio: 5/6;
     background:#f5f5f1;
@@ -270,7 +271,10 @@
 
   @media(max-width:900px){
     .hero .wrap{grid-template-columns:1fr;gap:36px;padding:48px 20px 56px}
-    .hero-media{aspect-ratio: 4/3}
+    /* show the full before/after (no crop) and drop the review card below it */
+    .hero-frame{aspect-ratio: 570/495}
+    .hero-media .hero-scrim{display:none}
+    .hero-media .card-float{position:static;margin-top:14px}
   }
 
   /* ---------- Sections ---------- */
@@ -902,17 +906,19 @@
       </div>
     </div>
     <div class="hero-media">
-      <img class="hero-vid" src="images/facebook-post-3.jpg" alt="Before and after of a Yes We Clean vent cleaning job" />
-      <div class="hero-scrim"></div>
-      <span class="ba-tag before"><span class="dot"></span>BEFORE</span>
-      <span class="ba-tag after"><span class="dot"></span>AFTER</span>
-      <div class="ground"></div>
-      <div class="stamp">
-        <span class="chip">
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
-          Photo on every job
-        </span>
-        <span class="chip">4.6★ · 32 reviews</span>
+      <div class="hero-frame">
+        <img class="hero-vid" src="images/facebook-post-3.jpg" alt="Before and after of a Yes We Clean vent cleaning job" />
+        <div class="hero-scrim"></div>
+        <span class="ba-tag before"><span class="dot"></span>BEFORE</span>
+        <span class="ba-tag after"><span class="dot"></span>AFTER</span>
+        <div class="ground"></div>
+        <div class="stamp">
+          <span class="chip">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>
+            Photo on every job
+          </span>
+          <span class="chip">4.6★ · 32 reviews</span>
+        </div>
       </div>
       <div class="card-float">
         <div class="avatar">FW</div>
